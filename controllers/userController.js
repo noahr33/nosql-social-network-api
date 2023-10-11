@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongoose').Types
 const { User } = require('../models')
 
 
@@ -35,11 +34,10 @@ module.exports = {
     }
   },
 
-  // ! fix this one
   async updateUser(req, res) {
     try {
-      const newUser = await User.create(req.body)
-      res.json(newUser)
+      const updateduUser = await User.findOneAndUpdate({ _id: req.params.userId }, { $set: req.body }, { new: true })
+      res.json(updateduUser)
     } catch (err) {
       console.log(err)
       return res.status(500).json(err)
