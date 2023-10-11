@@ -1,7 +1,8 @@
 const { users, thoughts } = require('./data')
 const { User, Thought } = require('../models')
-const mongoose = require('mongoose')
 const connect = require('../config/connection')
+
+connect.on('error', (err) => err)
 
 connect.once('open', () => {
   const seedDB = async () => {

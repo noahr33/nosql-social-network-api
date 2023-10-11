@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose')
 const reactionSchema = require('./schemas/reactions')
+const { Timestamp } = require('bson')
 
 const thoughtSchema = new Schema(
   {
@@ -9,15 +10,21 @@ const thoughtSchema = new Schema(
       min: 1,
       max: 280
     },
-    createdAt: {
-      date: { type: Date, default: Date.now },
-    },
     username: {
       type: String,
       required: true
     },
     reactions: [reactionSchema]
-  }
+  },
+  {
+    timestamps: true,
+    toJSON: {
+      getters: true,
+      virtuals: true
+    }
+  },
+
+
 )
 
 thoughtSchema.virtual('reactionCount')
