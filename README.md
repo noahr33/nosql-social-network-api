@@ -12,7 +12,7 @@ This is an API for a social network we application using the Express and Mogoose
 
 ## Installation
 
-Clone or Fork the repository to your computer. Enter `npm i` to install dependancies. You can run the script `npm run seed` to seed the database.
+Clone or Fork the repository to your computer. Enter `npm i` to install dependancies.
 
 ## Usage
 
