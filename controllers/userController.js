@@ -46,8 +46,18 @@ module.exports = {
 
   async deleteUser(req, res) {
     try {
-      const user = await User.findOneAndDelete({ _id: req.params.userId })
+      await User.findOneAndDelete({ _id: req.params.userId })
       res.send('User was deleted')
+    } catch (err) {
+      console.log(err)
+      return res.status(500).json(err)
+    }
+  },
+
+  async addFriend(req, res) {
+    try {
+      const newFriend = await User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true })
+      res.json(newFriend)
     } catch (err) {
       console.log(err)
       return res.status(500).json(err)
