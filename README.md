@@ -22,4 +22,4 @@ Clone or Fork the repository to your computer. Enter `npm i` to install dependan
 
 ## Video Walkthrough
 
-[Link to Video]()
+[Link to Video](https://drive.google.com/file/d/12-4T4QVlMszyxfiNK8f-NLuQvREIhCBl/view)
